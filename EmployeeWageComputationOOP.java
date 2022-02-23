@@ -3,30 +3,46 @@ package employeeWageComputationOOP;
 public class EmployeeWageComputationOOP {
 
 	public static void main(String[] args) {
-		int wages = 20;
-		int Monthly_Working_Days = 20;
-		int totalhrs = 0;
-		
-		for(int i=0; i<=20; i++) {
-			int attendance = (int) Math.floor((Math.random() * 3));
+		final int PART_TIME = 1;
+		final int FULL_TIME = 2;
+		final int PART_TIME_HOURS = 4;
+		final int FULL_TIME_HOURS = 8;
+        
+		//variables
+		int wage = 0;
+		int days = 0;
+		int hours = 0;
+		int no_of_days = 20;
+		int max_hours_in_month = 100;
+		int wages_per_hour = 20;
+
+		while (days < no_of_days && hours < max_hours_in_month) {
+			int attendance = (int) Math.floor((Math.random() * 10) % 3);
+
 			switch (attendance) {
-		case 0:
-			int empHrs = 4;
-			System.out.println("Employee is Present and worked Part Time");
-			totalhrs += empHrs;
-			break;
-		case 1:
-			int empHr = 8;
-			System.out.println(" Employee is Present and worked Full Time");
-			totalhrs += empHr;
-			break;
-		case 2:
-			System.out.println(" Employee is absent \n Wage is 0 ");
-			break;
+
+			case PART_TIME:
+				if (hours + PART_TIME_HOURS > 100) {
+					break;
+				}
+				hours += PART_TIME_HOURS;
+				days++;
+				break;
+			case FULL_TIME:
+				if (hours + FULL_TIME_HOURS > 100) {
+					break;
+				}
+				hours += FULL_TIME_HOURS;
+				days++;
+				break;
+			}
 		}
-		}
-		System.out.println("The Monthly Wage is : " + totalhrs*wages);
-		
+
+		wage = hours * wages_per_hour;
+
+		System.out.println(" TOTAL WAGES= " + wage);
+		System.out.println(" TOTAL WORKING DAYS = " + days);
+		System.out.println(" TOTAL WORKING HOURS = " + hours);
 	}
 
 }
