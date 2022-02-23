@@ -3,9 +3,7 @@ package lineComparison;
 import java.util.Scanner;
 
 public class LineComparison {
-	//Method to compute length of line
-		static double calculateLengthLine(double x1,double x2,double y1,double y2) 
-		{
+	static double calculateLengthLine(double x1,double x2,double y1,double y2) {
 	 	 double length_of_line=Math.sqrt(Math.pow(x2-x1, 2)+Math.pow(y2-y1, 2));
 		 return length_of_line;
 		 
@@ -14,7 +12,7 @@ public class LineComparison {
 		
 	  public static void main(String[] args) {
 		 
-		   //Taking inputs from system
+		   //Taking inputs from user
 			Scanner scanner= new Scanner(System.in);
 		    System.out.println("enter points of first line and second line");
 		       
@@ -35,13 +33,14 @@ public class LineComparison {
 		       double length2 = calculateLengthLine(p1,p2,q1,q2);
 		       
 		       //check equality
-		       if(length1 == length2) 
-		       {
+		       if(length1 == length2) {
 		    	   System.out.println("Two line are equal");
 		       }
-		       else 
-		       {
-		    	   System.out.println("Two line are not equal");
+		       else if(length1>length2){
+	        	   System.out.println("length of line1 is greater than lenth of line2");
+	           }
+		       else {
+		    	   System.out.println("length of line2 is greater than length of line1");
 		       }
 		       
 		    scanner.close();
